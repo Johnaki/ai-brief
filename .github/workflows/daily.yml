@@ -1,17 +1,17 @@
 name: AI Brief
-	on:
-	  schedule:
-	    - cron: '0 0,4,8,12 * * *'
-	  workflow_dispatch:
-	jobs:
-	  build:
-	    runs-on: ubuntu-latest
-	    steps:
-	      - uses: actions/checkout@v3
-	      - uses: actions/setup-python@v4
-	        with:
-	          python-version: '3.10'
-	      - run: pip install requests
-	      - run: python brief.py
-	        env:
-	          SERVERCHAN_KEY: ${{ secrets.SERVERCHAN_KEY }}
+on:
+  schedule:
+    - cron: '0 0,4,8,12 * * *'
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - run: pip install requests
+      - run: python brief.py
+        env:
+          SERVERCHAN_KEY: ${{ secrets.SERVERCHAN_KEY }}
